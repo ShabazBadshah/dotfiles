@@ -1,0 +1,10 @@
+{
+    "workbench.colorTheme": "One Dark Pro",
+    "window.zoomLevel": 0,
+    "terminal.integrated.shell.windows": "C:\\Windows\\sysnative\\bash.exe",
+    "window.menuBarVisibility": "toggle",
+    "python.autoComplete.addBrackets": true,
+    "workbench.statusBar.visible": true,
+    "zenMode.restore": true,
+    "zenMode.hideTabs": true
+}
