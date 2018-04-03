@@ -1,5 +1,6 @@
 # DotFiles
 
-- Bash
-- Emacs
-- Git
+  - Bash
+  - Emacs
+  - Git
+  - VS-Code
