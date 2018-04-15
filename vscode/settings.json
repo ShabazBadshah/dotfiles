@@ -1,10 +1,17 @@
 {
-    "workbench.colorTheme": "One Dark Pro",
+    "workbench.colorTheme": "Atom One Dark",
     "window.zoomLevel": 0,
     "terminal.integrated.shell.windows": "C:\\Windows\\sysnative\\bash.exe",
     "window.menuBarVisibility": "toggle",
     "python.autoComplete.addBrackets": true,
     "workbench.statusBar.visible": true,
     "zenMode.restore": true,
-    "zenMode.hideTabs": true
+    "zenMode.hideTabs": true,
+    "cSpell.userWords": [
+        "neighbours"
+    ],
+    "editor.wordWrap": "on",
+    "editor.wordWrapColumn": 80,
+    "[python]": {},
+    "python.pythonPath": "C:\\Python27\\python.exe"
 }
