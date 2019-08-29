@@ -9,6 +9,7 @@ export ZSH="/Users/shabazbadshah/.oh-my-zsh"
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
 ZSH_THEME="robbyrussell"
+# ZSH_THEME="powerlevel9k/powerlevel9k"
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -64,6 +65,7 @@ ZSH_THEME="robbyrussell"
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
   git
+  zsh-autosuggestions
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -98,11 +100,10 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 
-PROJ="$HOME/Documents/Misc/Projects"
-VALUS="$HOME/Documents/Misc/Projects/Valus-Project/valus-src"
+PROJ="$HOME/Documents/Projects"
 DESK="$HOME/Desktop"
 DOWN="$HOME/Downloads"
-ALGS="$HOME/Documents/Misc/Algorithms-and-Data-Structures-Basics"
+ALGS="$HOME/Documents/Projects/Algorithms-and-Data-Structures-Basics"
 
 alias ls='ls -lAFG'
 alias ..='cd ..'
@@ -114,13 +115,6 @@ alias cat='cat -b'
 alias ssh-utm="ssh badshah1@cslinux.utm.utoronto.ca"
 alias mkdir='mkdir -p'
 alias l='ls'
-
-# Program aliases
-alias pdf='open -a Preview $1'
-alias photo='open -a Preview $1'
-
-# Misc Aliases
-alias meeting='touch valus-`date '+%Y-%m-%d'`-meeting.md'
 
 # Uses program trash-cli (source: https://github.com/andreafrancia/trash-cli)
 alias rm='echo "rm is disabled, use trash-cli commands instead."'
@@ -139,5 +133,3 @@ function cd () {
 function mkcd() {
 	 mkdir $1 && cd $1
 }
-
-plugins=(zsh-autosuggestions)
