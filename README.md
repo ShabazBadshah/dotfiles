@@ -4,3 +4,4 @@
   - Emacs
   - Git
   - VS-Code
+  - Zsh
