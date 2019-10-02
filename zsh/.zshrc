@@ -100,10 +100,10 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 
-PROJ="$HOME/Documents/Projects"
+PROJ="$HOME/Projects"
 DESK="$HOME/Desktop"
 DOWN="$HOME/Downloads"
-ALGS="$HOME/Documents/Projects/Algorithms-and-Data-Structures-Basics"
+ALGS="$HOME/Projects/Algorithms-and-Data-Structures-Basics"
 
 alias ls='ls -lAFG'
 alias ..='cd ..'
