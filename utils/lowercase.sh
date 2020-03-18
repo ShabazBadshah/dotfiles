@@ -1,8 +1,8 @@
-rename -f 'y/A-Z/a-z/' *
-
-for i in *;
+for i in "$@";
 do
-	mv "$i" `echo "$i" | sed s/[[:space:]]/-/g | sed s/_/-/g | sed s/--/-/g | sed s/--/-/g | tr -d '(' | tr -d ')' | tr -d ','`
+	echo "Lowercasing filename: $i"
+	rename -f 'y/A-Z/a-z/' "$i"
+	mv -f "$i" `echo "$i" | sed s/[[:space:]]/-/g | sed s/_/-/g | sed s/--/-/g | sed s/--/-/g | tr -d '(' | tr -d ')' | tr -d ','`
 done
 
 trash icon- 
