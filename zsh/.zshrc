@@ -99,13 +99,13 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-
+# Paths
+VESTA="$HOME/Documents/school/university/year-4/csc490-security-capstone/vesta-final-project/vesta-p2p-file-sharing-src/"
 PROJ="$HOME/Projects"
 DESK="$HOME/Desktop"
 DOWN="$HOME/Downloads"
-ALGS="$HOME/Projects/Algorithms-and-Data-Structures-Basics"
 
-alias ls='ls -lAFG'
+alias ls='ls -lFGh'
 alias ..='cd ..'
 alias ...='cd ../..'
 alias c='clear'
@@ -115,9 +115,10 @@ alias cat='cat -b'
 alias ssh-utm="ssh badshah1@cslinux.utm.utoronto.ca"
 alias mkdir='mkdir -p'
 alias l='ls'
+alias mv='mv -inv'
 
 # Uses program trash-cli (source: https://github.com/andreafrancia/trash-cli)
-alias rm='echo "rm is disabled, use trash-cli commands instead."'
+alias rm='echo "rm is disabled, use trash-cli commands instead"'
 
 # Matches title bar color of terminal (https://codematters.blog/custom-iterm2-titlebar-background-colors-a088c6f2ec60)
 echo -e "\033]6;1;bg;red;brightness;40\a"
@@ -133,3 +134,6 @@ function cd () {
 function mkcd() {
 	 mkdir $1 && cd $1
 }
+
+# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
+export PATH="$PATH:$HOME/.rvm/bin"
