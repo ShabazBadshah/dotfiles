@@ -1,0 +1,10 @@
+[{
+    "key": "cmd+`",
+    "command": "workbench.action.terminal.toggleTerminal"
+  },
+  {
+    "key": "cmd+`",
+    "command": "workbench.action.terminal.focus",
+    "when": "!terminalFocus"
+  }
+]
