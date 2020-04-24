@@ -1,3 +1,5 @@
+# Lowercases filenames in the existing directory while replacing all the "spaces", "underscores", and "double dashes" with dashes
+
 for i in "$@";
 do
 	echo "Lowercasing filename: $i"
