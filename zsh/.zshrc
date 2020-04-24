@@ -99,8 +99,12 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
+# Matches title bar color of terminal (https://codematters.blog/custom-iterm2-titlebar-background-colors-a088c6f2ec60)
+echo -e "\033]6;1;bg;red;brightness;40\a"
+echo -e "\033]6;1;bg;green;brightness;44\a"
+echo -e "\033]6;1;bg;blue;brightness;52\a"
+
 # Paths
-VESTA="$HOME/Documents/school/university/year-4/csc490-security-capstone/vesta-final-project/vesta-p2p-file-sharing-src/"
 PROJ="$HOME/Projects"
 DESK="$HOME/Desktop"
 DOWN="$HOME/Downloads"
@@ -112,7 +116,6 @@ alias c='clear'
 alias tree='tree -C'
 alias cls='clear'
 alias cat='cat -b'
-alias ssh-utm="ssh badshah1@cslinux.utm.utoronto.ca"
 alias mkdir='mkdir -p'
 alias l='ls'
 alias mv='mv -inv'
@@ -120,20 +123,13 @@ alias mv='mv -inv'
 # Uses program trash-cli (source: https://github.com/andreafrancia/trash-cli)
 alias rm='echo "rm is disabled, use trash-cli commands instead"'
 
-# Matches title bar color of terminal (https://codematters.blog/custom-iterm2-titlebar-background-colors-a088c6f2ec60)
-echo -e "\033]6;1;bg;red;brightness;40\a"
-echo -e "\033]6;1;bg;green;brightness;44\a"
-echo -e "\033]6;1;bg;blue;brightness;52\a"
-
 # cd and ls the directory
 function cd () {
 	# Using my alias for ls
 	builtin cd "$1" && ls
 }
 
+# make a directory and cd into it
 function mkcd() {
 	 mkdir $1 && cd $1
 }
-
-# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
-export PATH="$PATH:$HOME/.rvm/bin"
