@@ -12,7 +12,7 @@ My configs for systems and programs to allow for an expeditious setup
 └── zsh:    # Zsh config
 ```
 
-## 💻Current Setup
+## 💻 Current Setup
 
 - Macbook Pro 2015 15.4"
   - CPU: 2.2GHz i7-4770HQ (boost to 3.4GHz)
