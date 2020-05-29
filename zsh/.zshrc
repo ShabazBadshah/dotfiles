@@ -99,17 +99,13 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-# Matches title bar color of terminal (https://codematters.blog/custom-iterm2-titlebar-background-colors-a088c6f2ec60)
-echo -e "\033]6;1;bg;red;brightness;40\a"
-echo -e "\033]6;1;bg;green;brightness;44\a"
-echo -e "\033]6;1;bg;blue;brightness;52\a"
-
 # Paths
 PROJ="$HOME/Projects"
 DESK="$HOME/Desktop"
 DOWN="$HOME/Downloads"
 
 alias ls='ls -lFGh'
+alias la='ls -laFGh'
 alias ..='cd ..'
 alias ...='cd ../..'
 alias c='clear'
@@ -123,13 +119,17 @@ alias mv='mv -inv'
 # Uses program trash-cli (source: https://github.com/andreafrancia/trash-cli)
 alias rm='echo "rm is disabled, use trash-cli commands instead"'
 
+# Matches title bar color of terminal (https://codematters.blog/custom-iterm2-titlebar-background-colors-a088c6f2ec60)
+echo -e "\033]6;1;bg;red;brightness;40\a"
+echo -e "\033]6;1;bg;green;brightness;44\a"
+echo -e "\033]6;1;bg;blue;brightness;52\a"
+
 # cd and ls the directory
 function cd () {
 	# Using my alias for ls
 	builtin cd "$1" && ls
 }
 
-# make a directory and cd into it
 function mkcd() {
 	 mkdir $1 && cd $1
 }
