@@ -1,6 +1,8 @@
 {
     "window.zoomLevel": 0,
-    "window.menuBarVisibility": "toggle",
+    "files.exclude": {
+      "node_modules/": true
+    },
     "python.autoComplete.addBrackets": true,
     "workbench.statusBar.visible": true,
     "zenMode.restore": true,
@@ -8,14 +10,12 @@
     "editor.tabSize": 2,
     "editor.wordWrap": "on",
     "editor.wordWrapColumn": 120,
-    "[python]": {},
-    "workbench.colorTheme": "GitHub Plus",
+    "workbench.colorTheme": "One Monokai",
     "javascript.updateImportsOnFileMove.enabled": "always",
     "files.autoSave": "afterDelay",
     "git.autofetch": true,
     "breadcrumbs.enabled": true,
-    "explorer.confirmDragAndDrop": false,
-    "javascript.validate.enable": false,
+    "javascript.validate.enable": true,
     "javascript.suggestionActions.enabled": false,
     "editor.minimap.enabled": true,
     "editor.cursorSmoothCaretAnimation": true,
@@ -27,99 +27,56 @@
     "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
     "eslint.alwaysShowStatus": true,
     "eslint.validate": [
-        "javascript", "javascriptreact",
-        {
-            "language": "typescript",
-            "autoFix": true
-        },
-        {
-            "language": "typescriptreact",
-            "autoFix": true
-        }
+      "javascript",
+      "javascriptreact",
+      {
+        "language": "typescript",
+        "autoFix": true
+      },
+      {
+        "language": "typescriptreact",
+        "autoFix": true
+      }
     ],
-    "editor.formatOnSave": false,
     "[javascript]": {
-        "editor.formatOnSave": true,
-        "editor.defaultFormatter": "esbenp.prettier-vscode",
+      "editor.formatOnSave": true,
+      "editor.defaultFormatter": "esbenp.prettier-vscode"
     },
     "[json]": {
-        "editor.formatOnSave": true
+      "editor.formatOnSave": true,
+      "editor.defaultFormatter": "esbenp.prettier-vscode"
     },
     "[typescript]": {
-        "editor.formatOnSave": true,
+      "editor.formatOnSave": true
     },
-    "cSpell.userWords": [
-        "camelcase",
-        "favourites",
-        "inferrable",
-    ],
     "typescript.updateImportsOnFileMove.enabled": "always",
     "java.configuration.checkProjectSettingsExclusions": false,
-    "[markdown]": {
-    
-},
-"python.jediEnabled": false,
-"[html]": {
-    "editor.defaultFormatter": "vscode.html-language-features"
-},
-"sync.forceUpload": true,
-"peacock.favoriteColors": [
-    {
-        "name": "Angular Red",
-        "value": "#b52e31"
+    "[markdown]": {},
+    "python.jediEnabled": false,
+    "[html]": {
+      "editor.defaultFormatter": "vscode.html-language-features"
     },
-    {
-        "name": "Auth0 Orange",
-        "value": "#eb5424"
-    },
-    {
-        "name": "Azure Blue",
-        "value": "#007fff"
-    },
-    {
-        "name": "C# Purple",
-        "value": "#68217A"
-    },
-    {
-        "name": "Gatsby Purple",
-        "value": "#639"
-    },
-    {
-        "name": "Go Cyan",
-        "value": "#5dc9e2"
-    },
-    {
-        "name": "Java Blue-Gray",
-        "value": "#557c9b"
-    },
-    {
-        "name": "JavaScript Yellow",
-        "value": "#f9e64f"
-    },
-    {
-        "name": "Mandalorian Blue",
-        "value": "#1857a4"
-    },
-    {
-        "name": "Node Green",
-        "value": "#215732"
-    },
-    {
-        "name": "React Blue",
-        "value": "#00b3e6"
-    },
-    {
-        "name": "Something Different",
-        "value": "#832561"
-    },
-    {
-        "name": "Vue Green",
-        "value": "#42b883"
-    }
-],
-"liveshare.account": "",
-"polacode.backgroundColor": "#ffffff",
-"polacode.shadow": "",
-"polacode.target": "snippet",
-"polacode.transparentBackground": true
-}
+    "sync.forceUpload": true,
+    "liveshare.account": "",
+    "polacode.backgroundColor": "#ffffff",
+    "polacode.shadow": "",
+    "polacode.target": "snippet",
+    "polacode.transparentBackground": true,
+    "python.pythonPath": "/usr/bin/python3",
+    "workbench.editorAssociations": [
+      {
+        "viewType": "default",
+        "filenamePattern": "*.html"
+      }
+    ],
+    "workbench.panel.defaultLocation": "left",
+    "terminal.integrated.shell.osx": "/bin/zsh",
+    "workbench.preferredLightColorTheme": "GitHub Plus",
+    "workbench.preferredDarkColorTheme": "One Monokai",
+    "window.autoDetectColorScheme": true,
+    "explorer.confirmDragAndDrop": true,
+    "eslint.run": "onSave",
+    "window.newWindowDimensions": "fullscreen",
+    "window.restoreFullscreen": true
+  }
+  
