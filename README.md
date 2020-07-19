@@ -6,10 +6,11 @@ My configs for systems and programs to allow for an expeditious setup
 
 ```
 .
-├── iterm   # Iterm2 dark/light theme profiles
-├── utils   # Utilities for common usecases
-├── vscode  # Vscode settings, extensions, keybindings
-└── zsh:    # Zsh config
+├── docker-images # Frequently used Docker images/configs
+├── iterm  # Iterm2 dark/light theme profiles
+├── utils  # Utilities for common usecases
+├── vscode # Vscode settings, extensions, keybindings
+└── zsh:   # Zsh config
 ```
 
 ## 💻 Current Setup
