@@ -115,6 +115,7 @@ alias cat='cat -b'
 alias mkdir='mkdir -p'
 alias l='ls'
 alias mv='mv -inv'
+alias cp='cp -vnR'
 
 # Uses program trash-cli (source: https://github.com/andreafrancia/trash-cli)
 alias rm='echo "rm is disabled, use trash-cli commands instead"'
@@ -123,6 +124,28 @@ alias rm='echo "rm is disabled, use trash-cli commands instead"'
 echo -e "\033]6;1;bg;red;brightness;40\a"
 echo -e "\033]6;1;bg;green;brightness;44\a"
 echo -e "\033]6;1;bg;blue;brightness;52\a"
+
+alias rsync="echo rsync is disabled, use rsync-dry or rsync-not-dry to copy files"
+
+function rsync-dry() {
+	if [ "$#" -ne 2 ]; then
+    printf "Usage: rsync-dry source target"
+	else
+		printf "Running rsync-dry from $1 to $2\n\n"
+		\rsync -avn --delete --exclude=".DS_Store" --exclude="node_modules" $1 $2
+		printf  "\nDone dry syncing files from $1 to $2\n"
+	fi
+}
+
+function rsync-not-dry() {
+	if [ "$#" -ne 2 ]; then
+    printf "Usage: rsync-not-dry source target"
+	else
+		printf "Running rsync-not-dry from $1 to $2\n\n"
+		\rsync -av --delete --exclude=".DS_Store" --exclude="node_modules" $1 $2
+		printf  "\nDone syncing files from $1 to $2\n"
+	fi
+}
 
 # cd and ls the directory
 function cd () {
