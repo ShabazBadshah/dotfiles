@@ -7,6 +7,7 @@ My configs for systems and programs to allow for an expeditious setup
 ```
 .
 ├── docker-images # Frequently used Docker images/configs
+├── extensions # Browser extension configurations
 ├── git-hooks # Git hooks for git VC
 ├── iterm  # Iterm2 dark/light theme profiles
 ├── utils  # Utilities for common usecases
