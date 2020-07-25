@@ -1,0 +1,46 @@
+{
+    "enabled": false,
+    "theme": {
+        "mode": 1,
+        "brightness": 86,
+        "contrast": 115,
+        "grayscale": 0,
+        "sepia": 0,
+        "useFont": false,
+        "fontFamily": "Segoe UI",
+        "textStroke": 0,
+        "engine": "dynamicTheme",
+        "stylesheet": "",
+        "darkSchemeBackgroundColor": "#181a1b",
+        "darkSchemeTextColor": "#e8e6e3",
+        "lightSchemeBackgroundColor": "#dcdad7",
+        "lightSchemeTextColor": "#181a1b",
+        "scrollbarColor": "auto",
+        "selectionColor": "auto"
+    },
+    "customThemes": [],
+    "siteList": [
+        "todoist.com",
+        "www.researchgate.net",
+        "localhost:8000"
+    ],
+    "siteListEnabled": [
+        "docs.docker.com",
+        "www.gatsbyjs.org"
+    ],
+    "applyToListedOnly": false,
+    "changeBrowserTheme": false,
+    "notifyOfNews": false,
+    "syncSettings": true,
+    "automation": "system",
+    "time": {
+        "activation": "18:00",
+        "deactivation": "9:00"
+    },
+    "location": {
+        "latitude": null,
+        "longitude": null
+    },
+    "previewNewDesign": true,
+    "enableForPDF": true
+}
