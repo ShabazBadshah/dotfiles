@@ -155,7 +155,9 @@ function aescrypt() {
 		if [ $EXIT_STATUS -ne 0 ]; then
 			printf "\nThere was an error encrypting $INPUT_PATH. View the original backup at $BACKUP_PATH/$BACKUP_FILE_NAME"
 		else
-			printf "\nEncrypted file saved to $OUTPUT_PATH"
+			printf "\nEncrypted file saved to $OUTPUT_PATH\n"
+			printf "\nRemoving backup of original file $BACKUP_PATH/$BACKUP_FILE_NAME\n"
+			command rm -v $BACKUP_PATH/$BACKUP_FILE_NAME
 		fi
 	fi
 }
@@ -174,7 +176,7 @@ function aesdecrypt() {
 		INPUT_PATH=$2
 		OUTPUT_PATH=$3
 		BACKUP_FILE_NAME="$INPUT_PATH-$CURR_DATE_TIME"
-
+		
 		printf "Creating backup of existing file to $BACKUP_PATH\n"
 		command cp -v $INPUT_PATH $BACKUP_PATH/$BACKUP_FILE_NAME
 
@@ -186,7 +188,9 @@ function aesdecrypt() {
 		if [ $EXIT_STATUS -ne 0 ]; then
 			printf "\nThere was an error decrypting $INPUT_PATH. View the original backup at $BACKUP_PATH/$BACKUP_FILE_NAME"
 		else
-			printf "\nDecrypted file saved to $OUTPUT_PATH"
+			printf "\nDecrypted file saved to $OUTPUT_PATH\n"
+			printf "\nRemoving backup of original file $BACKUP_PATH/$BACKUP_FILE_NAME\n"
+			command rm -v $BACKUP_PATH/$BACKUP_FILE_NAME
 		fi
 	fi
 }
@@ -211,7 +215,6 @@ function rsync-not-dry() {
 		printf  "\nDone syncing files from $1 to $2\n"
 	fi
 }
-
 
 # cd and ls the directory
 function cd () {
