@@ -72,6 +72,8 @@ source $ZSH/oh-my-zsh.sh
 
 # User configuration
 
+PATH=$PATH:~/.npm-packages/bin
+
 # export MANPATH="/usr/local/man:$MANPATH"
 
 # You may need to manually set your language environment
@@ -127,6 +129,69 @@ echo -e "\033]6;1;bg;blue;brightness;52\a"
 
 alias rsync="echo rsync is disabled, use rsync-dry or rsync-not-dry to copy files"
 
+# Encrypts a file using a AES-256-CBC key
+function aescrypt() {
+	if [ "$#" -ne 3 ]; then
+    printf "Usage: aescrypt <key path> <input file path> <output file path>"
+	else
+
+		CURR_DATE_TIME=`date "+%Y-%m-%d-%H:%M:%S"`
+		BACKUP_PATH="$HOME/.aescrypt-backup/encrypt"
+		command mkdir -p $BACKUP_PATH
+
+		KEY=$1
+		INPUT_PATH=$2
+		OUTPUT_PATH=$3
+		BACKUP_FILE_NAME="$INPUT_PATH-$CURR_DATE_TIME"
+
+		printf "Creating backup of existing file to $BACKUP_PATH\n"
+		command cp -v $INPUT_PATH $BACKUP_PATH/$BACKUP_FILE_NAME
+
+		printf "\nEncrypting file $INPUT_PATH using key $KEY\n"
+		command openssl aes-256-cbc -v -e -k $KEY -in $INPUT_PATH -out $OUTPUT_PATH
+		EXIT_STATUS=$?
+		printf "\nEncrypting file $INPUT_PATH using key $KEY returned status $EXIT_STATUS\n"
+
+		if [ $EXIT_STATUS -ne 0 ]; then
+			printf "\nThere was an error encrypting $INPUT_PATH. View the original backup at $BACKUP_PATH/$BACKUP_FILE_NAME"
+		else
+			printf "\nEncrypted file saved to $OUTPUT_PATH"
+		fi
+	fi
+}
+
+# Decrypts a file using a AES-256-CBC key
+function aesdecrypt() {
+	if [ "$#" -ne 3 ]; then
+    printf "Usage: aesdecrypt <key path> <input file path> <output file path>"
+	else
+
+		CURR_DATE_TIME=`date "+%Y-%m-%d-%H:%M:%S"`
+		BACKUP_PATH="$HOME/.aescrypt-backup/decrypt"
+		command mkdir -p $BACKUP_PATH
+
+		KEY=$1
+		INPUT_PATH=$2
+		OUTPUT_PATH=$3
+		BACKUP_FILE_NAME="$INPUT_PATH-$CURR_DATE_TIME"
+
+		printf "Creating backup of existing file to $BACKUP_PATH\n"
+		command cp -v $INPUT_PATH $BACKUP_PATH/$BACKUP_FILE_NAME
+
+		printf "\nDecrypting file $INPUT_PATH using key $KEY\n"
+		command openssl aes-256-cbc -v -d -k $KEY -in $INPUT_PATH -out $OUTPUT_PATH
+		EXIT_STATUS=$?
+		printf "\nDecrypting file $INPUT_PATH using key $KEY returned status $EXIT_STATUS\n"
+
+		if [ $EXIT_STATUS -ne 0 ]; then
+			printf "\nThere was an error decrypting $INPUT_PATH. View the original backup at $BACKUP_PATH/$BACKUP_FILE_NAME"
+		else
+			printf "\nDecrypted file saved to $OUTPUT_PATH"
+		fi
+	fi
+}
+
+
 function rsync-dry() {
 	if [ "$#" -ne 2 ]; then
     printf "Usage: rsync-dry source target"
@@ -146,6 +211,7 @@ function rsync-not-dry() {
 		printf  "\nDone syncing files from $1 to $2\n"
 	fi
 }
+
 
 # cd and ls the directory
 function cd () {
