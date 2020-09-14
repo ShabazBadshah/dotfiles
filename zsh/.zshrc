@@ -131,8 +131,8 @@ alias rsync="echo rsync is disabled, use rsync-dry or rsync-not-dry to copy file
 
 # Encrypts a file using a AES-256-CBC key
 function aescrypt() {
-	if [ "$#" -ne 3 ]; then
-    printf "Usage: aescrypt <key path> <input file path> <output file path>"
+	if [ "$#" -ne 2 ]; then
+    printf "Usage: aescrypt <key path> <input file path>"
 	else
 
 		CURR_DATE_TIME=`date "+%Y-%m-%d-%H:%M:%S"`
@@ -141,7 +141,7 @@ function aescrypt() {
 
 		KEY=$1
 		INPUT_PATH=$2
-		OUTPUT_PATH=$3
+		OUTPUT_PATH="$2.enc"
 		BACKUP_FILE_NAME="$INPUT_PATH-$CURR_DATE_TIME"
 
 		printf "Creating backup of existing file to $BACKUP_PATH\n"
