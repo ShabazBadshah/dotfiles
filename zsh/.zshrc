@@ -105,6 +105,7 @@ PATH=$PATH:~/.npm-packages/bin
 PROJ="$HOME/Projects"
 DESK="$HOME/Desktop"
 DOWN="$HOME/Downloads"
+MUZZ="$PROJ/muzzomo"
 
 alias ls='ls -lFGh'
 alias la='ls -laFGh'
@@ -118,6 +119,7 @@ alias mkdir='mkdir -p'
 alias l='ls'
 alias mv='mv -inv'
 alias cp='cp -vnR'
+alias y='yarn'
 
 # Uses program trash-cli (source: https://github.com/andreafrancia/trash-cli)
 alias rm='echo "rm is disabled, use trash-cli commands instead"'
@@ -144,6 +146,11 @@ function aescrypt() {
 		OUTPUT_PATH="$2.enc"
 		BACKUP_FILE_NAME="$INPUT_PATH-$CURR_DATE_TIME"
 
+		if [ -d INPUT_PATH ]; then
+			printf "\nCannot encrypt directores"
+			exit 1
+		fi
+
 		printf "Creating backup of existing file to $BACKUP_PATH\n"
 		command cp -v $INPUT_PATH $BACKUP_PATH/$BACKUP_FILE_NAME
 
@@ -167,7 +174,6 @@ function aesdecrypt() {
 	if [ "$#" -ne 3 ]; then
     printf "Usage: aesdecrypt <key path> <input file path> <output file path>"
 	else
-
 		CURR_DATE_TIME=`date "+%Y-%m-%d-%H:%M:%S"`
 		BACKUP_PATH="$HOME/.aescrypt-backup/decrypt"
 		command mkdir -p $BACKUP_PATH
@@ -176,6 +182,11 @@ function aesdecrypt() {
 		INPUT_PATH=$2
 		OUTPUT_PATH=$3
 		BACKUP_FILE_NAME="$INPUT_PATH-$CURR_DATE_TIME"
+
+		if [ -d INPUT_PATH ]; then
+			printf "\nCannot decrypt directores"
+			exit 1
+		fi 
 		
 		printf "Creating backup of existing file to $BACKUP_PATH\n"
 		command cp -v $INPUT_PATH $BACKUP_PATH/$BACKUP_FILE_NAME
