@@ -1,0 +1,73 @@
+version: "3"
+services:
+  db:
+    image: mariadb
+    command: --transaction-isolation=READ-COMMITTED --binlog-format=ROW
+    restart: always
+    volumes:
+      - db:/var/lib/mysql
+    environment:
+      - MYSQL_ROOT_PASSWORD=${DB_ROOT_PASSWORD}
+      - MYSQL_PASSWORD=${DB_PASSWORD}
+      - MYSQL_DATABASE=${DB_NAME}
+      - MYSQL_USER=${DB_NAME}
+    networks:
+      - default
+  redis:
+    image: redis
+    restart: always
+    networks:
+      - default
+  app:
+    image: nextcloud:20-apache
+    restart: always
+    ports:
+      - 80:80
+    volumes:
+      - data:/var/www/html
+    environment:
+      - MYSQL_HOST=${DB_HOST}
+      - MYSQL_PASSWORD=${DB_PASSWORD}  
+      - MYSQL_DATABASE=${DB_NAME}
+      - MYSQL_USER=${DB_NAME}
+    depends_on:
+      - db
+      - redis
+    networks:
+      - default
+    networks:
+      - default
+volumes:
+  data:
+  db:
+networks:
+  default:
+
+
+
+# version: '2' sudo -u www-data php occ files:scan --all
+
+# volumes:
+#   nextcloud:
+#   pgdata:
+
+# services:
+#   db:
+#     image: postgres
+#     restart: always
+#     volumes:
+#       - pgdata:/var/lib/postgresql/data
+#     environment:
+#       - POSTGRES_PASSWORD=password
+#     ports:
+#       - 5432:5432
+#   app:
+#     image: nextcloud
+#     ports:
+#       - 8080:80
+#     links:
+#       - db
+#     volumes:
+#       - ./nextcloud:/var/www/html
+#       - ./nextcloud-data:/var/www/nextcloud/data
+#     restart: always
