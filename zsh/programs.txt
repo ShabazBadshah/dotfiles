@@ -1,0 +1,15 @@
+android-platform-tools
+coreutils
+java
+jsonpp
+mysql
+nmap
+node
+python@3.9
+scrcpy
+trash-cli
+tree
+wget
+yarn
+zip
+zsh-syntax-highlighting
